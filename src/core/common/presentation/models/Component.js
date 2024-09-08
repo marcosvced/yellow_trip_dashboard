@@ -1,7 +1,6 @@
 export class Component extends HTMLElement {
     constructor() {
         super()
-        // this.attachShadow({mode: 'open'})
 
         if (this.constructor === Component) {
             throw new Error('Component is an abstract class and cannot be instantiated directly.')

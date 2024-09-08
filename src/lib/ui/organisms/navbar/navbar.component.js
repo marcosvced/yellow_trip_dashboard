@@ -1,8 +1,8 @@
 import {Component} from "../../../../core/common/presentation/models/Component.js";
 
-import styles from "./styles.module.css?raw";
+import styles from "./styles.module.css?inline";
 
-class Navbar extends Component {
+export class Navbar extends Component {
     constructor() {
         super()
 
@@ -21,6 +21,7 @@ class Navbar extends Component {
             },
         ]
     }
+
 
 
     template() {

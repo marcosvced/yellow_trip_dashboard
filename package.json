@@ -14,8 +14,11 @@
   },
   "packageManager": "yarn@4.4.1",
   "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.5.0",
     "chart.js": "^4.4.4",
     "datedreamer": "^0.3.6",
+    "jsdom": "^25.0.0",
     "luxon": "^3.5.0"
   }
 }

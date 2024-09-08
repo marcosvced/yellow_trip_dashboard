@@ -27,7 +27,7 @@ export class TripsMetricsBloc {
       switch (event) {
         case 'GetTripsEvent':
           const { day } = params ?? {}
-          const data = await getTripsEvent('2017-01-01ss')
+          const data = await getTripsEvent(day ?? '2017-01-01')
           this.update(new TripsMetricsState({ data }))
           break
         default:

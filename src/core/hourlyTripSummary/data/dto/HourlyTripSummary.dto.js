@@ -20,7 +20,7 @@ export class HourlyTripSummaryDto {
 
     toDomain() {
 
-        const pickupDate = DateTime.fromISO(this.trip_date.toISOString(), {zone: 'America/New_York'}).set({hour: this.trip_hour})
+        const pickupDate = DateTime.fromISO(new Date(this.trip_date).toISOString(), {zone: 'America/New_York'}).set({hour: this.trip_hour})
         return new HourlyTripSummary({
             vendor: this.vendorid,
             distance: this.total_distance_per_hour,
