@@ -10,17 +10,13 @@ export const useOnMounted = (callback) => {
 
 document.addEventListener('DOMContentLoaded', async () => {
 
-    // const components = Array.from(
-    //     document.querySelectorAll('*[class^="ui-"]'))
-    //     .map(item =>{
-    //         console.log(item)
-    //         return  item.tagName.toLowerCase()
-    //     }
-    // )
-const components = [
-    "ui-navbar",
-    "ui-hourly-amount-by-vendor"
-]
+    const components = Array.from(
+        document.querySelectorAll('*[class^="ui-"]'))
+        .map(item =>{
+            console.log(item)
+            return  item.tagName.toLowerCase()
+        }
+    )
     await Promise.all(components.map((tag) => customElements.whenDefined(tag)))
 
     isMounted.value = true

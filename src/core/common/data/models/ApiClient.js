@@ -1,3 +1,5 @@
+import {BadRequestException} from "../../domain/models/Exception.js";
+
 class ApiClient {
   constructor({ baseUrl, headers }) {
     this.baseUrl = baseUrl
@@ -22,11 +24,13 @@ async function useFetch({ endpoint, headers }) {
       fetch(endpoint, { headers }),
       new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 5000)),
     ])
+    const data = await response.json()
+
     if (!response.ok) {
-      throw new Error(`Request error: ${response.status} ${response.statusText}`)
+      throw BadRequestException(data.error)
     }
 
-    return await response.json()
+    return data
   }
   catch (error) {
     throw error

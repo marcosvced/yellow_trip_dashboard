@@ -1,6 +1,4 @@
 import {Component} from "../../../../core/common/presentation/models/Component.js";
-import {useOnMounted} from "../../../../core/common/presentation/hooks/useOnMounted.js";
-import {context} from "../../../../core/common/presentation/models/Context.js";
 
 import styles from "./styles.module.css?raw";
 
@@ -39,7 +37,7 @@ class Navbar extends Component {
     </nav>`
     }
 
-    async styles() {
+    styles() {
         return styles
     }
 }

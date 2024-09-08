@@ -3,7 +3,7 @@ import { TripsMetrics } from '../../domain/entities/TripsMetrics.js'
 export class TripsMetricsState {
   /**
    * @param {State} state
-   * @param {TripsMetrics} state.data
+   * @param {HourlyTripSummary[]} state.data
    * @param {Errors} [state.errors]
    * @param {boolean} [state.isLoading]
    */

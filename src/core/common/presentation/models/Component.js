@@ -9,10 +9,8 @@ export class Component extends HTMLElement {
     }
 
     async connectedCallback() {
-        const template = await this.template()
-        const styles = await this.styles()
-        this.classList.add(`ui-${this.constructor.name.toLowerCase()}`)
-        this.innerHTML = `<style>${styles}</style>${template}`
+        this.render()
+
         if (this.setup) {
             this.setup()
         }
@@ -24,11 +22,18 @@ export class Component extends HTMLElement {
     }
 
     styles() {
-        throw new Error('Classes extending Component must implement method \'styles\'')
+        return undefined
     }
 
     setup() {
         return undefined
+    }
+
+     render() {
+        const template =  this.template()
+        const styles =  this.styles()
+        this.classList.add(`ui-${this.constructor.name.toLowerCase()}`)
+        this.innerHTML = `${styles ? `<style>${styles}</style>` : ''} ${template}`
     }
 
     async _loadPartial(path) {

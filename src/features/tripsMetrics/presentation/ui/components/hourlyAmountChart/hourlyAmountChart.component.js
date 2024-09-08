@@ -21,7 +21,6 @@ export class HourlyAmountByVendor extends Component {
             /** @type {TripsMetricsBloc} */
             const bloc = context.inject('TripsMetricsBloc')
             bloc.subscribe(() => {
-                console.log('aka')
                 const {labels, records} = this._getData(bloc.state.value.data.summary)
                 if (!chart) {
                     chart = useHourlyAmountByVendorChart(labels, records)
@@ -32,11 +31,11 @@ export class HourlyAmountByVendor extends Component {
         })
     }
 
-    async template() {
+    template() {
         return template
     }
 
-    async styles() {
+    styles() {
         return styles
     }
 

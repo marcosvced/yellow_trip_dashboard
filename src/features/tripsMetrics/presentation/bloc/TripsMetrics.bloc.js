@@ -23,14 +23,21 @@ export class TripsMetricsBloc {
    * @return {void}
    */
   async dispatch(event, params) {
-    switch (event) {
-      case 'GetTripsEvent':
-        const { day } = params ?? {}
-        const data = await getTripsEvent(day ?? '2017-01-01')
-        this.update(new TripsMetricsState({ data }))
-        break
-      default:
-        throw new Error(`Unhandled event type: ${event}`)
+    try {
+      switch (event) {
+        case 'GetTripsEvent':
+          const { day } = params ?? {}
+          const data = await getTripsEvent('2017-01-01ss')
+          this.update(new TripsMetricsState({ data }))
+          break
+        default:
+          throw new Error(`Unhandled event type: ${event}`)
+      }
     }
+    /** @type {DataException | Error}*/
+    catch (e) {
+      console.error(e)
+    }
+
   }
 }

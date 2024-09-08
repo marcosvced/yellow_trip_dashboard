@@ -4,7 +4,7 @@ export class GetTripsMetricsUseCase {
     this.repository = repository
   }
 
-  /** @return {HourlyTripSummary[]} */
+  /** @return {Promise<HourlyTripSummary[]>} */
   async execute(day) {
     /** @type {HourlyTripSummaryDto[]} */
     const tripsDto = await this.repository.getHourlyData(day)
