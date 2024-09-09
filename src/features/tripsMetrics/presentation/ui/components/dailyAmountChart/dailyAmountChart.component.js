@@ -3,12 +3,12 @@ import template from './index.template.html?raw'
 import { useOnMounted } from '@/core/common/presentation/hooks/useOnMounted.js'
 import { context } from '@/core/common/presentation/models/Context.js'
 import useGetSummaryByVendor from '@/features/tripsMetrics/presentation/ui/hooks/useGetSummaryByVendor.js'
-import chartBarMixin, {
+import chartMixin, {
   defaultBarChartConfig,
 } from '@/features/tripsMetrics/presentation/ui/components/mixins/chartMixin.js'
 import { useUpdateChart } from '@/core/common/presentation/hooks/useUpdateChart.js'
 
-export class DailyDistanceChart extends Component {
+export class DailyAmountChart extends Component {
   constructor() {
     super()
   }
@@ -19,15 +19,19 @@ export class DailyDistanceChart extends Component {
       const bloc = context.inject('TripsMetricsBloc')
       bloc.subscribe(() => {
         const { labels, records } = this._getData(bloc.state.value.data.summary)
+        console.log(labels, records)
         if (!chart) {
-          chart = chartBarMixin({
+          chart = chartMixin({
             labels,
             records: [records],
             backgroundsColor: [defaultBarChartConfig.backgroundsColor],
-            selector: '#daily-distance-chart',
-            options: {
-              ...defaultBarChartConfig.options,
-              indexAxis: 'y',
+            selector: '#daily-amount-chart',
+            type: 'doughnut',
+            dataset: {
+              ...defaultBarChartConfig.dataset,
+              borderWidth: 8,
+              borderRadius: 24,
+              borderColor: '#1A1D1E',
             },
           })
           return
@@ -43,17 +47,15 @@ export class DailyDistanceChart extends Component {
 
   _getData(summary) {
     const summaryByVendor = useGetSummaryByVendor(summary)
-    const distanceByVendor = summaryByVendor.map((innerArray) => {
-      const total = innerArray.reduce((acc, curr) => acc + curr.distance, 0)
-      return {
-        vendor: innerArray[0].vendor,
-        distance: Math.round(total * 100) / 100,
-      }
+    const paxByVendor = summaryByVendor.map((innerArray) => {
+      const total = innerArray.reduce((acc, curr) => acc + curr.amount.value, 0)
+      return { vendor: innerArray[0].vendor, amount: total }
     })
-    const labels = distanceByVendor.map((data => data.vendor))
-    const records = distanceByVendor.map(data => data.distance)
-    return { labels, records }
+    return {
+      labels: paxByVendor.map((data => data.vendor)),
+      records: paxByVendor.map(data => data.amount),
+    }
   }
 }
 
-customElements.define('ui-daily-distance-chart', DailyDistanceChart)
+customElements.define('ui-daily-amount-chart', DailyAmountChart)

@@ -14,6 +14,7 @@ export class Component extends HTMLElement {
     }
   }
 
+  /** @type {any} */
   template() {
     throw MethodNotImplementedException('template')
   }
