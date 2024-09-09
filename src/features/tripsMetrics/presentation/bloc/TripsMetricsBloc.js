@@ -1,5 +1,5 @@
-import { TripsMetricsState } from './TripsMetrics.state.js'
-import { getTripsEvent } from './events/GetTrips.event.js'
+import { TripsMetricsState } from './TripsMetricsState.js'
+import { getTripsEvent } from './events/GetTripsEvent.js'
 import useProxy from "../../../../core/common/presentation/hooks/useProxy.js";
 
 export class TripsMetricsBloc {

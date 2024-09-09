@@ -1,5 +1,6 @@
 import {faker} from "@faker-js/faker";
 
+/** @interface */
 export class Factory {
     constructor() {
         this.faker = faker

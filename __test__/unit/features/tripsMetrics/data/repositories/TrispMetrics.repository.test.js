@@ -2,19 +2,19 @@
 import {  describe, expect, test, vi, } from 'vitest'
 import {apiClient} from "../../../../../../src/core/common/data/models/ApiClient.js";
 import {
-    TripsMetricsRepository
-} from "../../../../../../src/features/tripsMetrics/data/repositories/TripsMetrics.repository.js";
-import {HourlyTripSummaryDto} from "../../../../../../src/core/hourlyTripSummary/data/dto/HourlyTripSummary.dto.js";
+    TripsMetricsRepositoryImpl
+} from "../../../../../../src/features/tripsMetrics/data/repositories/TripsMetricsRepositoryImpl.js";
+import {HourlyTripSummaryDto} from "../../../../../../src/core/hourlyTripSummary/data/dto/HourlyTripSummaryDto.js";
 import {faker} from "@faker-js/faker";
 import useToIsoDate from "../../../../common/utils/useToIsoDate.js";
 import {HourlyTripSummaryDtoFactory} from "../../../../common/fatories/HourlyTripSummaryDtoFactory.js";
 
-describe('TripsMetricsRepository - fetches and maps trip data', () => {
+describe('TripsMetricsRepositoryImpl - fetches and maps trip data', () => {
 
     test('should return an empty array when no trip data is available for the given day', async () => {
         vi.spyOn(apiClient, 'get').mockResolvedValue({ data: [] });
 
-        const repository = new TripsMetricsRepository();
+        const repository = new TripsMetricsRepositoryImpl();
         const trip_date = HourlyTripSummaryDtoFactory.new().create().trip_date
         const result = await repository.getHourlyData(trip_date)
 
@@ -29,7 +29,7 @@ describe('TripsMetricsRepository - fetches and maps trip data', () => {
 
         vi.spyOn(apiClient, 'get').mockResolvedValue({ data: mockData });
 
-        const repository = new TripsMetricsRepository();
+        const repository = new TripsMetricsRepositoryImpl();
         const result = await repository.getHourlyData(useToIsoDate(trip_date));
 
         expect(result).toHaveLength(mockResultLength);

@@ -1,5 +1,5 @@
 import {describe, vi, test, expect} from "vitest";
-import {GetTripsMetricsUseCase} from "../../../../../../src/features/tripsMetrics/data/useCases/GetTripsMetrics.useCase.js";
+import {GetTripsMetricsUseCase} from "../../../../../../src/features/tripsMetrics/domain/useCases/GetTripsMetricsUseCase.js";
 import {HourlyTripSummary} from "../../../../../../src/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js";
 import {HourlyTripSummaryDtoFactory} from "../../../../common/fatories/HourlyTripSummaryDtoFactory.js";
 import {faker} from "@faker-js/faker";

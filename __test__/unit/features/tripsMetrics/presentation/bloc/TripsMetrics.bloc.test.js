@@ -1,6 +1,6 @@
 import {describe, vi, test, expect} from "vitest";
-import {TripsMetricsBloc} from "../../../../../../src/features/tripsMetrics/presentation/bloc/TripsMetrics.bloc.js";
-import {TripsMetricsState} from "../../../../../../src/features/tripsMetrics/presentation/bloc/TripsMetrics.state.js";
+import {TripsMetricsBloc} from "../../../../../../src/features/tripsMetrics/presentation/bloc/TripsMetricsBloc.js";
+import {TripsMetricsState} from "../../../../../../src/features/tripsMetrics/presentation/bloc/TripsMetricsState.js";
 
 describe('TripsMetricsBloc', ()=>{
 
