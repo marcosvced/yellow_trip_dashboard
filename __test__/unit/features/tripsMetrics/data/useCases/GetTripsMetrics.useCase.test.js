@@ -4,13 +4,14 @@ import {HourlyTripSummary} from "../../../../../../src/core/hourlyTripSummary/do
 import {HourlyTripSummaryDtoFactory} from "../../../../common/fatories/HourlyTripSummaryDtoFactory.js";
 import {faker} from "@faker-js/faker";
 import useToIsoDate from "../../../../common/utils/useToIsoDate.js";
+import {HourlyTripSummaryFactory} from "../../../../common/fatories/HourlyTripSummaryFactory.js";
 
 describe('GetTripsMetricsUseCase - execute utilizes repository and transforms data to HourlyTripSummary objects', () => {
 
     test('should return HourlyTripSummary array when valid date is provided', async () => {
 
-        const trip_date = faker.date.between({from: '2017-01-01', to: '2017-01-31'})
-        const mockData = HourlyTripSummaryDtoFactory.new().times(Math.floor(Math.random() * 100) + 1, {trip_date})
+        const pickupDate = faker.date.between({from: '2017-01-01', to: '2017-01-31'})
+        const mockData = HourlyTripSummaryFactory.new().times(Math.floor(Math.random() * 100) + 1, {pickupDate})
 
         /** @type {TripsMetricsRepository} */
         const mockRepository = {
@@ -18,13 +19,13 @@ describe('GetTripsMetricsUseCase - execute utilizes repository and transforms da
         };
 
         const useCase = new GetTripsMetricsUseCase(mockRepository);
-        const result = await useCase.execute(trip_date);
+        const result = await useCase.execute(pickupDate);
 
         expect(result).toHaveLength(mockData.length);
         result.forEach((r, index) => {
             expect(r).toBeInstanceOf(HourlyTripSummary);
-            expect(r.vendor).toBe(mockData[index].vendorid);
-            expect(r.pickupDate.toISODate()).toBe(useToIsoDate(trip_date))
+            expect(r.vendor).toBe(mockData[index].vendor);
+            expect(r.pickupDate).toBe(pickupDate)
         })
 
     });
