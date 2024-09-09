@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+
+}
+
+*[class^="ui-"] {
+    display: contents;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    background-color: var(--c-ash);
+    display: flex;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--c-light);
+    overflow-x: hidden;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}

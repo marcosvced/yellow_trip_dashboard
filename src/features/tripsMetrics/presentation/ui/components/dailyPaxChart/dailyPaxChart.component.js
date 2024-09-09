@@ -29,9 +29,9 @@ export class DailyPaxChart extends Component {
             type: 'pie',
             dataset: {
               ...defaultBarChartConfig.dataset,
-              borderWidth: 8,
-              borderRadius: 24,
-              borderColor: '#1A1D1E',
+              borderWidth: 12,
+              borderRadius: 20,
+              borderColor: '#27292C',
             },
           })
           return

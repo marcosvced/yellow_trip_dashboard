@@ -7,7 +7,6 @@ import chartMixin, {
   defaultBarChartConfig,
 } from '@/features/tripsMetrics/presentation/ui/components/mixins/chartMixin.js'
 import { useUpdateChart } from '@/core/common/presentation/hooks/useUpdateChart.js'
-
 export class DailyAmountChart extends Component {
   constructor() {
     super()
@@ -29,9 +28,9 @@ export class DailyAmountChart extends Component {
             type: 'doughnut',
             dataset: {
               ...defaultBarChartConfig.dataset,
-              borderWidth: 8,
-              borderRadius: 24,
-              borderColor: '#1A1D1E',
+              borderWidth: 16,
+              borderRadius: 20,
+              borderColor: '#27292C',
             },
           })
           return

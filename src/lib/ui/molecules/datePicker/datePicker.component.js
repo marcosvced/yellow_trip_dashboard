@@ -38,7 +38,10 @@ class DatePicker extends Component {
   }
 
   template() {
-    return '<div id="my-calendar"></div>'
+    return `<label for="date-input">
+               <span">Filter by date</span>
+               <div id="my-calendar"></div>
+            </label>`
   }
 }
 customElements.define('ui-date-picker', DatePicker)

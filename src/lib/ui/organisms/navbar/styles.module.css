@@ -1,9 +1,27 @@
 nav {
-    background: #1E2023;
-    padding: 64px;
+    background: var(--c-ash-200);
+    padding: var(--s-64px);
+    width: 320px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
-nav.navbar > ul {
+nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-16px);
+
+    > li > a {
+        display: flex;
+        align-items: center;
+        gap: var(--s-12px);
+        padding-inline: var(--s-12px);
+        padding-block: var(--s-8px);
+        cursor: pointer;
+        opacity: .45;
+    }
+
 }

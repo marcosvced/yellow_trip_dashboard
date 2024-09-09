@@ -8,16 +8,19 @@ export class Navbar extends Component {
 
     this.entries = [
       {
-        icon: 'i',
+        icon: 'home',
         label: 'Dashboard',
+        isActive: true,
       },
       {
-        icon: 'i',
+        icon: 'group',
         label: 'Accounts',
+        isActive: false,
       },
       {
-        icon: 'i',
+        icon: 'route',
         label: 'Routes',
+        isActive: false,
       },
     ]
   }
@@ -27,9 +30,13 @@ export class Navbar extends Component {
     <nav class="navbar" role="navigation">
         <ul>
             ${this.entries.map(entry => `
-                <li id=${'"' + entry.label.toLowerCase() + '"'}>
-                    <span>${entry.icon}</span>
-                    <span>${entry.label}</span>
+                <li id="${entry.label.toLowerCase()}" class="${entry.isActive ? '-is-active' : ''}">
+                    <a>
+                        <span class="material-symbols-rounded">
+                            ${entry.icon}
+                        </span>
+                        <span>${entry.label}</span>
+                    </a>
                 </li>
             `).join('')}
         </ul>

@@ -47,6 +47,7 @@ export default function (chartConfig = {}) {
 
   return new Chart(ctx, {
     type: config.type,
+
     data: { labels, datasets },
     options: config.options,
   })

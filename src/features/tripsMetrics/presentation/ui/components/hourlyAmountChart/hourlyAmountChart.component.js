@@ -31,6 +31,7 @@ export class HourlyAmountChart extends Component {
             selector: '#hourly-amount-chart',
             options: {
               ...defaultBarChartConfig.options,
+
               scales: {
                 y: {
                   beginAtZero: true,

@@ -4,22 +4,53 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vite App</title>
+    <style>
+        #app {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .charts {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .daily-charts__wrapper {
+            display: flex;
+            flex-grow: 1;
+            gap: 24px;
+        }
+    </style>
 </head>
 <body>
-
 <ui-navbar></ui-navbar>
-<ui-date-picker default-date="2017-01-01"></ui-date-picker>
-<ui-daily-amount-chart></ui-daily-amount-chart>
-<ui-daily-pax-chart></ui-daily-pax-chart>
-<ui-daily-distance-chart></ui-daily-distance-chart>
-<ui-hourly-amount-chart></ui-hourly-amount-chart>
+<main id="app">
+    <ui-date-picker default-date="2017-01-01"></ui-date-picker>
+    <div class="charts">
+        <div class="daily-charts__wrapper">
+            <ui-daily-amount-chart></ui-daily-amount-chart>
+            <ui-daily-pax-chart></ui-daily-pax-chart>
+            <ui-daily-distance-chart></ui-daily-distance-chart>
+        </div>
+        <ui-hourly-amount-chart></ui-hourly-amount-chart>
+    </div>
+
+</main>
+
 
 <script type="module" src="main.js"></script>
 <script type="module" src="/src/lib/ui/organisms/navbar/navbar.component.js"></script>
 <script type="module" src="/src/lib/ui/molecules/datePicker/datePicker.component.js"></script>
-<script type="module" src="/src/features/tripsMetrics/presentation/ui/components/hourlyAmountChart/hourlyAmountChart.component.js"></script>
-<script type="module" src="/src/features/tripsMetrics/presentation/ui/components/dailyAmountChart/dailyAmountChart.component.js"></script>
-<script type="module" src="/src/features/tripsMetrics/presentation/ui/components/dailyPaxChart/dailyPaxChart.component.js"></script>
-<script type="module" src="/src/features/tripsMetrics/presentation/ui/components/dailyDistanceChart/dailyDistanceChart.component.js"></script>
+<script type="module"
+        src="/src/features/tripsMetrics/presentation/ui/components/hourlyAmountChart/hourlyAmountChart.component.js"></script>
+<script type="module"
+        src="/src/features/tripsMetrics/presentation/ui/components/dailyAmountChart/dailyAmountChart.component.js"></script>
+<script type="module"
+        src="/src/features/tripsMetrics/presentation/ui/components/dailyPaxChart/dailyPaxChart.component.js"></script>
+<script type="module"
+        src="/src/features/tripsMetrics/presentation/ui/components/dailyDistanceChart/dailyDistanceChart.component.js"></script>
 </body>
 </html>

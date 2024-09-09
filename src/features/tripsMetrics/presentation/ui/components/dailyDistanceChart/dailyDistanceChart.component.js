@@ -24,9 +24,20 @@ export class DailyDistanceChart extends Component {
             labels,
             records: [records],
             backgroundsColor: [defaultBarChartConfig.backgroundsColor],
+            dataset: {
+              ...defaultBarChartConfig.dataset, borderSkipped: false,
+            },
             selector: '#daily-distance-chart',
             options: {
               ...defaultBarChartConfig.options,
+              scales: {
+                y: {
+                  display: false,
+                },
+                x: {
+                  display: false,
+                },
+              },
               indexAxis: 'y',
             },
           })
@@ -39,6 +50,12 @@ export class DailyDistanceChart extends Component {
 
   template() {
     return template
+  }
+
+  styles() {
+    return `
+      .o-daily-distance-chart__wrapper { width: 100%;}
+      `
   }
 
   _getData(summary) {

@@ -1,0 +1,10 @@
+nav .-is-active {
+    background-color: var(--c-light);
+    border-radius: var(--s-16px);
+
+    > * {
+        opacity: 1;
+        font-weight: bold;
+        color: var(--c-ash-200) !important;
+    }
+}
