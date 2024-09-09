@@ -1,5 +1,5 @@
-import {useMoney} from "../../../../../core/common/presentation/hooks/useMoney.js";
-import {Chart} from "chart.js/auto";
+import { useMoney } from '../../../../../core/common/presentation/hooks/useMoney.js'
+import { Chart } from 'chart.js/auto'
 
 const config = {
   type: 'bar',

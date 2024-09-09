@@ -1,5 +1,5 @@
-import {DateTime} from "luxon";
+import { DateTime } from 'luxon'
 
 export default function useToIsoDate(date) {
- return DateTime.fromISO(date.toISOString()).toISODate();
+  return DateTime.fromISO(date.toISOString()).toISODate()
 }

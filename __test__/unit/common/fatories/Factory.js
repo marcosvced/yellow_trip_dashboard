@@ -1,22 +1,22 @@
-import {faker} from "@faker-js/faker";
+import { faker } from '@faker-js/faker'
 
 /** @interface */
 export class Factory {
-    constructor() {
-        this.faker = faker
-    }
+  constructor() {
+    this.faker = faker
+  }
 
-    static new() {
-        return new this()
-    }
+  static new() {
+    return new this()
+  }
 
-    create(extra = {}) {
-        return {}
-    }
+  create(extra = {}) {
+    return {}
+  }
 
-    times(times, extra = {}) {
-        return [...Array(times).keys()].map(() => {
-            return this.create(extra)
-        })
-    }
+  times(times, extra = {}) {
+    return [...Array(times).keys()].map(() => {
+      return this.create(extra)
+    })
+  }
 }

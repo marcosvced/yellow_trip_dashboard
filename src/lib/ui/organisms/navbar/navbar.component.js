@@ -1,31 +1,29 @@
-import {Component} from "../../../../core/common/presentation/models/Component.js";
+import { Component } from '../../../../core/common/presentation/models/Component.js'
 
-import styles from "./styles.module.css?inline";
+import styles from './styles.module.css?inline'
 
 export class Navbar extends Component {
-    constructor() {
-        super()
+  constructor() {
+    super()
 
-        this.entries = [
-            {
-                icon: 'i',
-                label: 'Dashboard',
-            },
-            {
-                icon: 'i',
-                label: 'Accounts',
-            },
-            {
-                icon: 'i',
-                label: 'Routes',
-            },
-        ]
-    }
+    this.entries = [
+      {
+        icon: 'i',
+        label: 'Dashboard',
+      },
+      {
+        icon: 'i',
+        label: 'Accounts',
+      },
+      {
+        icon: 'i',
+        label: 'Routes',
+      },
+    ]
+  }
 
-
-
-    template() {
-        return `
+  template() {
+    return `
     <nav class="navbar" role="navigation">
         <ul>
             ${this.entries.map(entry => `
@@ -36,11 +34,11 @@ export class Navbar extends Component {
             `).join('')}
         </ul>
     </nav>`
-    }
+  }
 
-    styles() {
-        return styles
-    }
+  styles() {
+    return styles
+  }
 }
 
 customElements.define('ui-navbar', Navbar)

@@ -6,6 +6,6 @@ export class GetTripsMetricsUseCase {
 
   /** @return {Promise<HourlyTripSummary[]>} */
   async execute(day) {
-    return this.repository.getHourlyData(day);
+    return this.repository.getHourlyData(day)
   }
 }

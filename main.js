@@ -1,4 +1,4 @@
-import './style.css'
+import './src/lib/assets/styles/style.css'
 import {context} from "./src/core/common/presentation/models/Context.js";
 import {TripsMetricsBloc} from "./src/features/tripsMetrics/presentation/bloc/TripsMetricsBloc.js";
 import {useSetSearchParams} from "./src/core/common/presentation/hooks/useSetSearchParams.js";
