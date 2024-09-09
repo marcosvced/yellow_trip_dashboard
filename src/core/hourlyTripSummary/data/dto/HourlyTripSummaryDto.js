@@ -1,6 +1,6 @@
-import { HourlyTripSummary } from '../../domain/entities/HourlyTripSummary.js'
 import { DateTime } from 'luxon'
-import { DTO } from '../../../common/data/dtos/DTO.js'
+import { DTO } from '@/core/common/data/dtos/DTO.js'
+import { HourlyTripSummary } from '../../domain/entities/HourlyTripSummary.js'
 
 export class HourlyTripSummaryDto extends DTO {
   constructor({

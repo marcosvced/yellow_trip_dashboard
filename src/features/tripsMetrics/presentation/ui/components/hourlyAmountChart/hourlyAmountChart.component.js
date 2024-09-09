@@ -1,9 +1,9 @@
 import useGetSummaryByVendor from '../../hooks/useGetSummaryByVendor.js'
 import useHourlyAmountByVendorChart from '../../hooks/useHourlyAmountByVendorChart.js'
-import { Component } from '../../../../../../core/common/presentation/models/Component.js'
-import { context } from '../../../../../../core/common/presentation/models/Context.js'
-import { useUpdateChart } from '../../../../../../core/common/presentation/hooks/useUpdateChart.js'
-import { useOnMounted } from '../../../../../../core/common/presentation/hooks/useOnMounted.js'
+import { Component } from '@/core/common/presentation/models/Component.js'
+import { context } from '@/core/common/presentation/models/Context.js'
+import { useUpdateChart } from '@/core/common/presentation/hooks/useUpdateChart.js'
+import { useOnMounted } from '@/core/common/presentation/hooks/useOnMounted.js'
 
 import template from './index.template.html?raw'
 import styles from './styles.module.css?raw'

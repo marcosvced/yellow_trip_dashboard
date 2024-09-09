@@ -1,6 +1,6 @@
 import { describe, vi, test, expect } from 'vitest'
-import { TripsMetricsBloc } from '../../../../../../src/features/tripsMetrics/presentation/bloc/TripsMetricsBloc.js'
-import { TripsMetricsState } from '../../../../../../src/features/tripsMetrics/presentation/bloc/TripsMetricsState.js'
+import { TripsMetricsBloc } from '@/features/tripsMetrics/presentation/bloc/TripsMetricsBloc.js'
+import { TripsMetricsState } from '@/features/tripsMetrics/presentation/bloc/TripsMetricsState.js'
 
 describe('TripsMetricsBloc', () => {
   test('should initialize with default state when no initial state is provided', () => {

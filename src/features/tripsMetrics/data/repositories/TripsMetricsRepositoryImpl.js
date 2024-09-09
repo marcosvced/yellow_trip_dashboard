@@ -1,6 +1,5 @@
-import { HourlyTripSummaryDto } from '../../../../core/hourlyTripSummary/data/dto/HourlyTripSummaryDto.js'
-import { apiClient } from '../../../../core/common/data/models/ApiClient.js'
-import { UnexpectedException } from '../../../../core/common/domain/models/Exception.js'
+import { HourlyTripSummaryDto } from '@/core/hourlyTripSummary/data/dto/HourlyTripSummaryDto.js'
+import { apiClient } from '@/core/common/data/models/ApiClient.js'
 import { TripsMetricsRepository } from '../../domain/ports/TripsMetricsRepository.js'
 import { TripsMetricsService } from '../services/TripsMetricsService.js'
 

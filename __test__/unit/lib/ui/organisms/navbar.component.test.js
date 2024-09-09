@@ -1,5 +1,5 @@
-import '../../../../../src/lib/ui/organisms/navbar/navbar.component.js'
-import { WebComponent } from '../../../common/utils/WebComponent.js'
+import '@/lib/ui/organisms/navbar/navbar.component.js'
+import { WebComponent } from '@test/unit/common/utils/WebComponent.js'
 import { expect } from 'vitest'
 import { getByText } from '@testing-library/dom'
 import '@testing-library/jest-dom'

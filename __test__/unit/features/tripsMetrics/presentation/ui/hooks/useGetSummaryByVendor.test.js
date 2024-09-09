@@ -1,7 +1,7 @@
 import { test, describe, expect } from 'vitest'
-import { HourlyTripSummaryFactory } from '../../../../../common/fatories/HourlyTripSummaryFactory.js'
+import { HourlyTripSummaryFactory } from '@test/unit/common/fatories/HourlyTripSummaryFactory.js'
 import useGetSummaryByVendor
-  from '../../../../../../../src/features/tripsMetrics/presentation/ui/hooks/useGetSummaryByVendor.js'
+  from '@/features/tripsMetrics/presentation/ui/hooks/useGetSummaryByVendor.js'
 
 describe('useGetSummaryByVendor', () => {
   test('should group summaries by vendor correctly when vendors are distinct', () => {

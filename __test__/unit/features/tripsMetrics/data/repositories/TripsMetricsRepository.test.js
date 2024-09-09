@@ -1,12 +1,12 @@
 import { describe, expect, test, vi } from 'vitest'
-import { apiClient } from '../../../../../../src/core/common/data/models/ApiClient.js'
+import { apiClient } from '@/core/common/data/models/ApiClient.js'
 import {
   TripsMetricsRepositoryImpl,
-} from '../../../../../../src/features/tripsMetrics/data/repositories/TripsMetricsRepositoryImpl.js'
+} from '@/features/tripsMetrics/data/repositories/TripsMetricsRepositoryImpl.js'
 import { faker } from '@faker-js/faker'
-import useToIsoDate from '../../../../common/utils/useToIsoDate.js'
-import { HourlyTripSummaryDtoFactory } from '../../../../common/fatories/HourlyTripSummaryDtoFactory.js'
-import { HourlyTripSummary } from '../../../../../../src/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
+import useToIsoDate from '@test/unit/common/utils/useToIsoDate.js'
+import { HourlyTripSummaryDtoFactory } from '@test/unit/common/fatories/HourlyTripSummaryDtoFactory.js'
+import { HourlyTripSummary } from '@/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
 
 describe('TripsMetricsRepositoryImpl - fetches and maps trip data', () => {
   test('should return an empty array when no trip data is available for the given day', async () => {

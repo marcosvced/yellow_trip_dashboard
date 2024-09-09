@@ -1,6 +1,6 @@
 import { TripsMetricsState } from './TripsMetricsState.js'
 import { getTripsEvent } from './events/GetTripsEvent.js'
-import useProxy from '../../../../core/common/presentation/hooks/useProxy.js'
+import useProxy from '@/core/common/presentation/hooks/useProxy.js'
 
 export class TripsMetricsBloc {
   /** @param {State} [initialState] */

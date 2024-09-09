@@ -1,9 +1,9 @@
 import { calendarToggle as Calendar } from 'datedreamer'
-import { Component } from '../../../../core/common/presentation/models/Component.js'
-import { useOnMounted } from '../../../../core/common/presentation/hooks/useOnMounted.js'
+import { Component } from '@/core/common/presentation/models/Component.js'
+import { useOnMounted } from '@/core/common/presentation/hooks/useOnMounted.js'
 
 import styles from './styles.module.css?raw'
-import { context } from '../../../../core/common/presentation/models/Context.js'
+import { context } from '@/core/common/presentation/models/Context.js'
 
 class DatePicker extends Component {
   static get observedAttributes() {

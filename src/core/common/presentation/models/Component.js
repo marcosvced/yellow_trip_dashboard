@@ -1,10 +1,9 @@
+import { MethodNotImplementedException } from '../../domain/models/Exception.js'
+
+/** @abstract */
 export class Component extends HTMLElement {
   constructor() {
     super()
-
-    if (this.constructor === Component) {
-      throw new Error('Component is an abstract class and cannot be instantiated directly.')
-    }
   }
 
   async connectedCallback() {
@@ -16,7 +15,7 @@ export class Component extends HTMLElement {
   }
 
   template() {
-    throw new Error('Classes extending Component must implement method \'template\'')
+    throw MethodNotImplementedException('template')
   }
 
   styles() {
@@ -32,10 +31,5 @@ export class Component extends HTMLElement {
     const styles = this.styles()
     this.classList.add(`ui-${this.constructor.name.toLowerCase()}`)
     this.innerHTML = `${styles ? `<style>${styles}</style>` : ''} ${template}`
-  }
-
-  async _loadPartial(path) {
-    const response = await fetch(path)
-    return await response.text()
   }
 }

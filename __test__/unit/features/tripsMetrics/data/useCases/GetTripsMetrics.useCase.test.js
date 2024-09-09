@@ -1,10 +1,8 @@
 import { describe, vi, test, expect } from 'vitest'
-import { GetTripsMetricsUseCase } from '../../../../../../src/features/tripsMetrics/domain/useCases/GetTripsMetricsUseCase.js'
-import { HourlyTripSummary } from '../../../../../../src/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
-import { HourlyTripSummaryDtoFactory } from '../../../../common/fatories/HourlyTripSummaryDtoFactory.js'
+import { GetTripsMetricsUseCase } from '@/features/tripsMetrics/domain/useCases/GetTripsMetricsUseCase.js'
+import { HourlyTripSummary } from '@/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
 import { faker } from '@faker-js/faker'
-import useToIsoDate from '../../../../common/utils/useToIsoDate.js'
-import { HourlyTripSummaryFactory } from '../../../../common/fatories/HourlyTripSummaryFactory.js'
+import { HourlyTripSummaryFactory } from '@test/unit/common/fatories/HourlyTripSummaryFactory.js'
 
 describe('GetTripsMetricsUseCase - execute utilizes repository and transforms data to HourlyTripSummary objects', () => {
   test('should return HourlyTripSummary array when valid date is provided', async () => {

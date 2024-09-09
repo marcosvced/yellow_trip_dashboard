@@ -1,8 +1,5 @@
-import { HourlyTripSummaryDto } from '../../../../src/core/hourlyTripSummary/data/dto/HourlyTripSummaryDto.js'
 import { Factory } from './Factory.js'
-import { DateTime } from 'luxon'
-import useToIsoDate from '../utils/useToIsoDate.js'
-import { HourlyTripSummary } from '../../../../src/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
+import { HourlyTripSummary } from '@/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
 
 export class HourlyTripSummaryFactory extends Factory {
   /** @return {HourlyTripSummary} */

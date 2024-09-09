@@ -1,4 +1,4 @@
-import { Component } from '../../../../core/common/presentation/models/Component.js'
+import { Component } from '@/core/common/presentation/models/Component.js'
 
 import styles from './styles.module.css?inline'
 

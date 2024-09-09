@@ -1,4 +1,4 @@
-import { Money } from '../../../money/domain/entities/Money.js'
+import { Money } from '@/core/money/domain/entities/Money.js'
 
 export class HourlyTripSummary {
   /**
