@@ -1,5 +1,5 @@
 /**
- * @typedef {'TripsMetricsBloc' | string} ContextKey
+ * @typedef {'DashboardBloc' | string} ContextKey
  * */
 class Context {
   constructor() {
