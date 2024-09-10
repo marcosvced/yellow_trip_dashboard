@@ -1,6 +1,6 @@
 import './src/lib/assets/styles/style.css'
 import { context } from '@/core/common/presentation/models/Context.js'
-import { TripsMetricsBloc } from '@/features/tripsMetrics/presentation/bloc/TripsMetricsBloc.js'
+import { DashboardBloc } from '@/features/dashboard/presentation/bloc/DashboardBloc.js'
 import { useSetSearchParams } from '@/core/common/presentation/hooks/useSetSearchParams.js'
 import { useGetSearchParams } from '@/core/common/presentation/hooks/useGetSearchParams.js'
 
@@ -8,8 +8,8 @@ function app() {
   const { filterBy } = useGetSearchParams(['filterBy'])
   context.provide('SelectedDate', filterBy?.day)
 
-  const bloc = new TripsMetricsBloc()
-  context.provide('TripsMetricsBloc', bloc)
+  const bloc = new DashboardBloc()
+  context.provide('DashboardBloc', bloc)
 
   bloc.dispatch('GetTripsEvent', { day: filterBy?.day })
 
