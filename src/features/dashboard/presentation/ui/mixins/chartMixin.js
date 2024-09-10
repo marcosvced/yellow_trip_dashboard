@@ -16,6 +16,7 @@ export const defaultBarChartConfig = {
   type: 'bar',
   backgroundsColor: ['#57D1E3', '#95D3BE'],
   dataset: {
+    labels: [],
     borderRadius: 8,
     maxBarThickness: 24,
     minBarThickness: 8,
@@ -41,6 +42,7 @@ export default function (chartConfig = {}) {
   const { records, labels } = config
   const datasets = records.map((data, index) => ({
     ...config.dataset,
+    label: 0 < config.dataset.labels.length ? config.dataset.labels[index] : '',
     backgroundColor: config.backgroundsColor[index ?? 0],
     data,
   }))

@@ -29,9 +29,17 @@ export class HourlyAmountChart extends Component {
             labels,
             records,
             selector: '#hourly-amount-chart',
+            dataset: {
+              ...defaultBarChartConfig.dataset,
+              labels: ['Vendor 1', 'Vendor 2'],
+            },
             options: {
               ...defaultBarChartConfig.options,
-
+              plugins: {
+                legend: {
+                  display: true,
+                },
+              },
               scales: {
                 y: {
                   beginAtZero: true,
