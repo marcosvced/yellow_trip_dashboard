@@ -1,6 +1,6 @@
 import { Money } from '@/core/money/domain/entities/Money.js'
 
-export class HourlyTripSummary {
+export class TripSummary {
   /**
    * @param {Object} hourlyTripSummary
    * @param {DateTime} hourlyTripSummary.pickupDate

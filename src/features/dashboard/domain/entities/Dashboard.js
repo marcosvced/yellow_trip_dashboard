@@ -1,7 +1,7 @@
-import { HourlyTripSummary } from '@/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
+import { TripSummary } from '@/core/tripSummary/domain/entities/TripSummary.js'
 
 export class Dashboard {
-  /** @param {HourlyTripSummary[]} summary */
+  /** @param {TripSummary[]} summary */
   constructor(summary) {
     this.summary = summary
   }

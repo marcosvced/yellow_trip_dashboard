@@ -5,7 +5,7 @@ import { getByText } from '@testing-library/dom'
 import '@testing-library/jest-dom'
 
 describe('Navbar WebComponent', () => {
-  test('should render Navbar with correct entries', async (browser) => {
+  test('should render Navbar with correct entries', async () => {
     const wrapper = await WebComponent.mount('ui-navbar')
 
     const dashboardEntry = getByText(wrapper, 'Dashboard')

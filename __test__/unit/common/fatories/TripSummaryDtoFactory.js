@@ -1,9 +1,9 @@
-import { HourlyTripSummaryDto } from '@/core/hourlyTripSummary/data/dto/HourlyTripSummaryDto.js'
+import { TripSummaryDto } from '@/core/tripSummary/data/dto/TripSummaryDto.js'
 import { Factory } from './Factory.js'
 import useToIsoDate from '../utils/useToIsoDate.js'
 
-export class HourlyTripSummaryDtoFactory extends Factory {
-  /** @return {HourlyTripSummaryDto} */
+export class TripSummaryDtoFactory extends Factory {
+  /** @return {TripSummaryDto} */
   create(extra = {}) {
     let { trip_date: fakeDate } = extra
 
@@ -13,7 +13,7 @@ export class HourlyTripSummaryDtoFactory extends Factory {
 
     const trip_date = useToIsoDate(fakeDate)
 
-    return new HourlyTripSummaryDto({
+    return new TripSummaryDto({
       vendorid: this.faker.number.int({ min: 1, max: 2 }),
       trip_date: `${trip_date}`,
       trip_hour: this.faker.number.int({ min: 0, max: 23 }),

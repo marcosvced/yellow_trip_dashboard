@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon'
 import { DTO } from '@/core/common/data/dtos/DTO.js'
-import { HourlyTripSummary } from '../../domain/entities/HourlyTripSummary.js'
+import { TripSummary } from '../../domain/entities/TripSummary.js'
 
-export class HourlyTripSummaryDto extends DTO {
+export class TripSummaryDto extends DTO {
   constructor({
     vendorid,
                     trip_date,
@@ -20,10 +20,10 @@ export class HourlyTripSummaryDto extends DTO {
     this.total_distance_per_hour = total_distance_per_hour
   }
 
-  /** @return HourlyTripSummary */
+  /** @return TripSummary */
   toDomain() {
     const pickupDate = DateTime.fromISO(new Date(this.trip_date).toISOString(), { zone: 'America/New_York' }).set({ hour: this.trip_hour })
-    return new HourlyTripSummary({
+    return new TripSummary({
       vendor: this.vendorid,
       distance: this.total_distance_per_hour,
       amount: this.total_amount_per_hour,

@@ -1,4 +1,4 @@
-import { HourlyTripSummaryDto } from '@/core/hourlyTripSummary/data/dto/HourlyTripSummaryDto.js'
+import { TripSummaryDto } from '@/core/tripSummary/data/dto/TripSummaryDto.js'
 import { apiClient } from '@/core/common/data/models/ApiClient.js'
 import { DashboardRepository } from '../../domain/ports/DashboardRepository.js'
 import { DashboardService } from '../services/DashboardService.js'
@@ -14,7 +14,7 @@ export class DashboardRepositoryImpl extends DashboardRepository {
     const params = this.service.getHourlyDataQuery(day, query)
     try {
       const { data } = await apiClient.get(`/v0/pipes/yellow_tripdata_2017_pipe.json`, params)
-      return data.map(raw => new HourlyTripSummaryDto(raw).toDomain())
+      return data.map(raw => new TripSummaryDto(raw).toDomain())
     }
     /** @type {DataException} */
     catch (exception) {

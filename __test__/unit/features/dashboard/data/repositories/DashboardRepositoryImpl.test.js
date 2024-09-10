@@ -5,24 +5,24 @@ import {
 } from '@/features/dashboard/data/repositories/DashboardRepositoryImpl.js'
 import { faker } from '@faker-js/faker'
 import useToIsoDate from '@test/unit/common/utils/useToIsoDate.js'
-import { HourlyTripSummaryDtoFactory } from '@test/unit/common/fatories/HourlyTripSummaryDtoFactory.js'
-import { HourlyTripSummary } from '@/core/hourlyTripSummary/domain/entities/HourlyTripSummary.js'
+import { TripSummaryDtoFactory } from '@test/unit/common/fatories/TripSummaryDtoFactory.js'
+import { TripSummary } from '@/core/tripSummary/domain/entities/TripSummary.js'
 
 describe('DashboardRepositoryImpl - fetches and maps trip data', () => {
   test('should return an empty array when no trip data is available for the given day', async () => {
     vi.spyOn(apiClient, 'get').mockResolvedValue({ data: [] })
 
     const repository = new DashboardRepositoryImpl()
-    const trip_date = HourlyTripSummaryDtoFactory.new().create().trip_date
+    const trip_date = TripSummaryDtoFactory.new().create().trip_date
     const result = await repository.getHourlyData(trip_date)
 
     expect(result).toHaveLength(0)
   })
 
-  test('should return an array of HourlyTripSummary objects when a valid date is provided', async () => {
+  test('should return an array of TripSummary objects when a valid date is provided', async () => {
     const trip_date = faker.date.between({ from: '2017-01-01', to: '2017-01-31' })
     const mockResultLength = 3
-    const mockData = HourlyTripSummaryDtoFactory.new().times(mockResultLength, { trip_date })
+    const mockData = TripSummaryDtoFactory.new().times(mockResultLength, { trip_date })
 
     vi.spyOn(apiClient, 'get').mockResolvedValue({ data: mockData })
 
@@ -31,7 +31,7 @@ describe('DashboardRepositoryImpl - fetches and maps trip data', () => {
 
     expect(result).toHaveLength(mockResultLength)
     result.forEach((r, index) => {
-      expect(r).toBeInstanceOf(HourlyTripSummary)
+      expect(r).toBeInstanceOf(TripSummary)
       expect(r.vendor).toBe(mockData[index].vendorid)
     })
   })
