@@ -3,7 +3,7 @@ import { Dashboard } from '../../domain/entities/Dashboard.js'
 export class DashboardState {
   /**
    * @param {State} state
-   * @param {HourlyTripSummary[]} state.data
+   * @param {TripSummary[]} state.data
    * @param {Errors} [state.errors]
    * @param {boolean} [state.isLoading]
    */

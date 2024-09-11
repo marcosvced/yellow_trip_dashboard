@@ -2,12 +2,12 @@ import { Money } from '@/core/money/domain/entities/Money.js'
 
 export class TripSummary {
   /**
-   * @param {Object} hourlyTripSummary
-   * @param {DateTime} hourlyTripSummary.pickupDate
-   * @param {number} hourlyTripSummary.amount
-   * @param {number} hourlyTripSummary.distance
-   * @param {number} hourlyTripSummary.pax
-   * @param {number} hourlyTripSummary.vendor
+   * @param {Object} TripSummary
+   * @param {DateTime} TripSummary.pickupDate
+   * @param {number} TripSummary.amount
+   * @param {number} TripSummary.distance
+   * @param {number} TripSummary.pax
+   * @param {number} TripSummary.vendor
    */
   constructor({ pickupDate, amount, distance, pax, vendor }) {
     /** @type {DateTime} */
