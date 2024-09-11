@@ -1,8 +1,9 @@
 import { Chart } from 'chart.js/auto'
+import { context } from '@/core/common/presentation/models/Context.js'
 
 /**
  * @typedef {object} chartConfig
- * @property {'bar' | 'pie'} [type]
+ * @property {'bar' | 'pie' | 'doughnut'} [type]
  * @property {string} [selector]
  * @property {string[] || string[][]} [backgroundsColor]
  * @property {object} [dataset]
@@ -12,9 +13,10 @@ import { Chart } from 'chart.js/auto'
  * */
 
 /** @type {chartConfig} */
+const colors = context.inject('palette')
 export const defaultBarChartConfig = {
   type: 'bar',
-  backgroundsColor: ['#57D1E3', '#95D3BE'],
+  backgroundsColor: [colors['c_vendor_1'], colors['c_vendor_2']],
   dataset: {
     labels: [],
     borderRadius: 8,

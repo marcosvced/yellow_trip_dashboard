@@ -1,5 +1,5 @@
 /**
- * @typedef {'DashboardBloc' | string} ContextKey
+ * @typedef {'DashboardBloc' | 'palette' | string} ContextKey
  * */
 class Context {
   constructor() {

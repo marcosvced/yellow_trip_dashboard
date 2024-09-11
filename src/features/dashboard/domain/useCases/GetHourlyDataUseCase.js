@@ -4,7 +4,7 @@ export class GetHourlyDataUseCase {
     this.repository = repository
   }
 
-  /** @return {Promise<HourlyTripSummary[]>} */
+  /** @return {Promise<TripSummary[]>} */
   async execute(day) {
     return this.repository.getHourlyData(day)
   }

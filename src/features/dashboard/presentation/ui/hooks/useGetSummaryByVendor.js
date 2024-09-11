@@ -1,6 +1,6 @@
 /**
- * @param {HourlyTripSummary[]} summary
- * @return {HourlyTripSummary[][]}
+ * @param {TripSummary[]} summary
+ * @return {TripSummary[][]}
  * */
 export default function useGetSummaryByVendor(summary) {
   return Object.values(summary.reduce((acc, item) => {

@@ -5,7 +5,7 @@ import useGetSummaryByVendor
 
 describe('useGetSummaryByVendor', () => {
   test('should group summaries by vendor correctly when vendors are distinct', () => {
-    /** @type {HourlyTripSummary[]} */
+    /** @type {TripSummary[]} */
     const summary = TripSummaryFactory.new().times(15)
 
     const result = useGetSummaryByVendor(summary)

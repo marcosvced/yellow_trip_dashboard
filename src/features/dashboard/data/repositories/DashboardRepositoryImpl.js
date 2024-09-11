@@ -9,7 +9,7 @@ export class DashboardRepositoryImpl extends DashboardRepository {
     this.service = new DashboardService()
   }
 
-  /** @return {Promise<HourlyTripSummary[]>} */
+  /** @return {Promise<TripSummary[]>} */
   async getHourlyData(day, query = {}) {
     const params = this.service.getHourlyDataQuery(day, query)
     try {
