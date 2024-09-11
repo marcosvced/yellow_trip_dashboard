@@ -15,11 +15,11 @@ export class DailyPaxChart extends Component {
 
   setup() {
     let chart = undefined
+    const colors = context.inject('palette')
     useOnMounted(() => {
       const bloc = context.inject('DashboardBloc')
       bloc.subscribe(() => {
         const { labels, records } = this._getData(bloc.state.value.data.summary)
-        console.log(labels, records)
         if (!chart) {
           chart = chartMixin({
             labels,
@@ -31,7 +31,7 @@ export class DailyPaxChart extends Component {
               ...defaultBarChartConfig.dataset,
               borderWidth: 12,
               borderRadius: 20,
-              borderColor: '#27292C',
+              borderColor: colors['c_ash_100'],
             },
           })
           return

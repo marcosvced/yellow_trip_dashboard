@@ -16,9 +16,9 @@ export class DailyAmountChart extends Component {
     let chart = undefined
     useOnMounted(() => {
       const bloc = context.inject('DashboardBloc')
+      const colors = context.inject('palette')
       bloc.subscribe(() => {
         const { labels, records } = this._getData(bloc.state.value.data.summary)
-        console.log(labels, records)
         if (!chart) {
           chart = chartMixin({
             labels,
@@ -30,7 +30,7 @@ export class DailyAmountChart extends Component {
               ...defaultBarChartConfig.dataset,
               borderWidth: 16,
               borderRadius: 20,
-              borderColor: '#27292C',
+              borderColor: colors['c_ash_100'],
             },
           })
           return

@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const components = Array.from(
     document.querySelectorAll('*[class^="ui-"]'))
     .map((item) => {
-      console.log(item)
       return item.tagName.toLowerCase()
     },
     )
