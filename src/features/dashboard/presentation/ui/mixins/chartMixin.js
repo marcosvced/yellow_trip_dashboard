@@ -4,7 +4,6 @@ import { context } from '@/core/common/presentation/models/Context.js'
 /**
  * @typedef {object} chartConfig
  * @property {'bar' | 'pie' | 'doughnut'} [type]
- * @property {string} [selector]
  * @property {string[] || string[][]} [backgroundsColor]
  * @property {object} [dataset]
  * @property {string[]} [labels]
@@ -22,24 +21,30 @@ export const defaultBarChartConfig = {
     borderRadius: 8,
     maxBarThickness: 24,
     minBarThickness: 8,
+    pointStyle: 'circle',
   },
   options: {
     plugins: {
       legend: {
         display: false,
+        labels: {
+          usePointStyle: true,
+        },
       },
     },
   },
 }
 
-/** @param {chartConfig} chartConfig */
-export default function (chartConfig = {}) {
+/**
+ *  @param {chartConfig} chartConfig
+ *  @param {Element} root
+ *  */
+export default function (root, chartConfig = {}) {
   /** @type {chartConfig} */
   const config = {
     ...defaultBarChartConfig,
     ...chartConfig,
   }
-  const ctx = document.querySelector(config.selector)
 
   const { records, labels } = config
   const datasets = records.map((data, index) => ({
@@ -49,7 +54,7 @@ export default function (chartConfig = {}) {
     data,
   }))
 
-  return new Chart(ctx, {
+  return new Chart(root, {
     type: config.type,
 
     data: { labels, datasets },

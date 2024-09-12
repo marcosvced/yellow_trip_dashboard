@@ -20,27 +20,29 @@ export class DailyDistanceChart extends Component {
       bloc.subscribe(() => {
         const { labels, records } = this._getData(bloc.state.value.data.summary)
         if (!chart) {
-          chart = chartBarMixin({
-            labels,
-            records: [records],
-            backgroundsColor: [defaultBarChartConfig.backgroundsColor],
-            dataset: {
-              ...defaultBarChartConfig.dataset, borderSkipped: false,
-            },
-            selector: '#daily-distance-chart',
-            options: {
-              ...defaultBarChartConfig.options,
-              scales: {
-                y: {
-                  display: false,
-                },
-                x: {
-                  display: false,
-                },
+          chart = chartBarMixin(
+            this.shadowRoot.querySelector('#daily-distance-chart'),
+            {
+              labels,
+              records: [records],
+              backgroundsColor: [defaultBarChartConfig.backgroundsColor],
+              dataset: {
+                ...defaultBarChartConfig.dataset, borderSkipped: false,
               },
-              indexAxis: 'y',
-            },
-          })
+              options: {
+                ...defaultBarChartConfig.options,
+                aspectRatio: 4,
+                scales: {
+                  y: {
+                    display: false,
+                  },
+                  x: {
+                    display: false,
+                  },
+                },
+                indexAxis: 'y',
+              },
+            })
           return
         }
         useUpdateChart(chart, { records: [records], labels })

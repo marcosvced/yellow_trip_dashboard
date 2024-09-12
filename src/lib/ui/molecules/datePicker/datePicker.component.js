@@ -6,17 +6,12 @@ import styles from './styles.module.css?raw'
 import { context } from '@/core/common/presentation/models/Context.js'
 
 class DatePicker extends Component {
+  constructor() {
+    super(false)
+  }
+
   static get observedAttributes() {
     return ['default-date']
-  }
-
-  constructor() {
-    super()
-  }
-
-  attributeChangedCallback(date, oldValue, newValue) {
-    this['default-date'] = newValue
-    this.render()
   }
 
   setup() {

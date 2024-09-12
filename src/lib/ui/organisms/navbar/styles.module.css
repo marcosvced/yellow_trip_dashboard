@@ -1,27 +1,82 @@
-nav {
-    background: var(--c-ash-200);
-    padding: var(--s-64px);
-    width: 320px;
-    height: 100vh;
-    position: sticky;
-    top: 0;
+* {
+    box-sizing: border-box;
 }
-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-16px);
 
-    > li > a {
+*[class^="ui-"] {
+    display: contents;
+}
+
+nav {
+    z-index: 9999;
+    background: var(--c-ash-200);
+    display: flex;
+    align-items: center;
+    padding: var(--s-12px);
+    height: min-content;
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    width: 100%;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
         display: flex;
-        align-items: center;
-        gap: var(--s-12px);
-        padding-inline: var(--s-12px);
-        padding-block: var(--s-8px);
-        cursor: pointer;
-        opacity: .45;
+        gap: var(--s-16px);
+
+        > li > a {
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: var(--s-4px);
+            padding-block: var(--s-8px);
+            padding-inline: var(--s-24px);
+            cursor: pointer;
+            opacity: .45;
+            font-size: var(--s-12px);
+
+            .icon {
+                font-size: var(--s-24px);
+                display: inline-flex;
+            }
+        }
     }
 
+    .-is-active {
+        background-color: var(--c-accent);
+        border-radius: var(--s-16px);
+
+        > * {
+            opacity: 1;
+            font-weight: bold;
+            color: var(--c-light) !important;
+        }
+    }
 }
+
+
+@media (width > 1024px ) {
+    nav {
+        padding: var(--s-32px);
+        width: calc(calc(320 / 16) * 1rem);
+        height: 100vh;
+        position: sticky;
+        top: 0;
+
+        ul {
+            flex-direction: column;
+            width: 100%;
+
+            > li > a {
+                flex-direction: row;
+                gap: var(--s-12px);
+                padding-block: var(--s-12px);
+                padding-inline: var(--s-12px);
+                font-size: var(--s-16px);
+            }
+        }
+    }
+}
+

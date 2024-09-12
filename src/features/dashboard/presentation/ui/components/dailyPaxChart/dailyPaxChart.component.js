@@ -21,19 +21,21 @@ export class DailyPaxChart extends Component {
       bloc.subscribe(() => {
         const { labels, records } = this._getData(bloc.state.value.data.summary)
         if (!chart) {
-          chart = chartMixin({
-            labels,
-            records: [records],
-            backgroundsColor: [defaultBarChartConfig.backgroundsColor],
-            selector: '#daily-pax-chart',
-            type: 'pie',
-            dataset: {
-              ...defaultBarChartConfig.dataset,
-              borderWidth: 12,
-              borderRadius: 20,
-              borderColor: colors['c_ash_100'],
-            },
-          })
+          chart = chartMixin(
+            this.shadowRoot.querySelector('#daily-pax-chart'),
+            {
+              labels,
+              records: [records],
+              backgroundsColor: [defaultBarChartConfig.backgroundsColor],
+              type: 'pie',
+              dataset: {
+                ...defaultBarChartConfig.dataset,
+                borderWidth: 12,
+                borderRadius: 20,
+                borderColor: colors['c_ash_200'],
+                hoverBorderColor: colors['c_ash_200'],
+              },
+            })
           return
         }
         useUpdateChart(chart, { records: [records], labels })

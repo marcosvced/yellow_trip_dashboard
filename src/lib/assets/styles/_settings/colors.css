@@ -1,8 +1,11 @@
 :root {
-    --c-ash: #1A1D1E;
-    --c-ash-100: #27292C;
-    --c-ash-200: #1E2023;
+    --c-ash: #050505;
+    --c-ash-300: #161617;
+    --c-ash-200: #28282A;
+    --c-ash-100: #38383B;
     --c-light: #FAFAFB;
+
+    --c-accent: #444A5C;
 
     --c-vendor-1: #57D1E3;
     --c-vendor-2: #95D3BE;

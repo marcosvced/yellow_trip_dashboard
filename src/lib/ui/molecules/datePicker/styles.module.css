@@ -1,21 +1,27 @@
-.datedreamer__calendar-toggle__input > input {
-    margin-top: 8px;
-    border: 0;
-    outline: none;
-    padding-block: 12px;
-    padding-inline: 24px;
-    background-color: #27292C;
-
-    border-radius: 12px;
+.datedreamer__calendar-toggle,
+.datedreamer__calendar-toggle__input {
     width: min-content;
 }
+.datedreamer__calendar-toggle__input > input {
+    margin: var(--s-8px) 0 0;
+    outline: none;
+    padding-block: var(--s-12px);
+    padding-inline: var(--s-24px);
+    background-color: var(--c-ash-200);
+    border-radius: var(--s-12px);
+    border: 2px solid var(--c-ash-100);
+    width: min-content;
+    cursor: pointer;
+}
 .datedreamer__calendar {
-    background: #27292C;
+    background: var(--c-ash-200);
     z-index: 10;
+    border-radius: var(--s-20px);
+    margin-top: var(--s-8px);
 
     * {
         font-family: "Inter", sans-serif !important;
-        color: #FAFAFB !important;
+        color:  var(--c-light) !important;
     }
 
     .datedreamer__calendar_prev,
@@ -28,11 +34,9 @@
     }
 
     .datedreamer__calendar_days .datedreamer__calendar_day.active:before {
-        border-radius: 4px;
-        background: #5D6885;
+        border-radius: var(--s-4px);
+        background: var(--c-accent);
     }
-
-
 
 }
 

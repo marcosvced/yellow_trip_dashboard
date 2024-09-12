@@ -20,19 +20,25 @@ export class DailyAmountChart extends Component {
       bloc.subscribe(() => {
         const { labels, records } = this._getData(bloc.state.value.data.summary)
         if (!chart) {
-          chart = chartMixin({
-            labels,
-            records: [records],
-            backgroundsColor: [defaultBarChartConfig.backgroundsColor],
-            selector: '#daily-amount-chart',
-            type: 'doughnut',
-            dataset: {
-              ...defaultBarChartConfig.dataset,
-              borderWidth: 16,
-              borderRadius: 20,
-              borderColor: colors['c_ash_100'],
-            },
-          })
+          chart = chartMixin(
+            this.shadowRoot.querySelector('#daily-amount-chart'),
+            {
+              labels,
+              records: [records],
+              backgroundsColor: [defaultBarChartConfig.backgroundsColor],
+              type: 'doughnut',
+              dataset: {
+                ...defaultBarChartConfig.dataset,
+                borderWidth: 16,
+                borderRadius: 20,
+                borderColor: colors['c_ash_200'],
+                hoverBorderColor: colors['c_ash_200'],
+              },
+              options: {
+                ...defaultBarChartConfig.options,
+                aspectRatio: 1,
+              },
+            })
           return
         }
         useUpdateChart(chart, { records: [records], labels })

@@ -267,6 +267,8 @@
 :where(summary) {
   display: list-item;
 }
-h2 {
+
+h2,
+*::part(h2){
   margin: 0;
 }
