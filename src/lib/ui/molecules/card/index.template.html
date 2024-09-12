@@ -1,0 +1,17 @@
+<div class="m-card">
+
+    <div class="m-card__head">
+        <slot name="card-header">
+            <h2 part="h2">
+                <span class="icon">
+                    <ui-icon icon="{{icon}}"></ui-icon>
+                </span>
+                {{ title }}
+            </h2>
+            <span class="subtitle">{{ subtitle }}</span>
+        </slot>
+    </div>
+    <div class="m-card__body">
+        <slot name="card-body"></slot>
+    </div>
+</div>

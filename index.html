@@ -3,41 +3,31 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Vite App</title>
-    <style>
-        #app {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+    <title>Yellow Trip</title>
 
-        .charts {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .daily-charts__wrapper {
-            display: flex;
-            flex-grow: 1;
-            gap: 24px;
-        }
-    </style>
 </head>
 <body>
 
 <ui-navbar></ui-navbar>
+
 <main id="app">
     <!-- dashboard route -->
     <ui-date-picker default-date="2017-01-01"></ui-date-picker>
     <div class="charts">
         <div class="daily-charts__wrapper">
-            <ui-daily-amount-chart></ui-daily-amount-chart>
-            <ui-daily-pax-chart></ui-daily-pax-chart>
-            <ui-daily-distance-chart></ui-daily-distance-chart>
+            <ui-card icon="account_balance" title="Daily amount" subtitle="Total daily revenue per vendor">
+                <ui-daily-amount-chart slot="card-body"></ui-daily-amount-chart>
+            </ui-card>
+            <ui-card icon="groups" title="Daily nº of pax" subtitle="Number of pax per day by vendor">
+                <ui-daily-pax-chart slot="card-body"></ui-daily-pax-chart>
+            </ui-card>
+            <ui-card icon="road" title="Daily distance" subtitle="Daily distance travelled by vendor">
+                <ui-daily-distance-chart slot="card-body"></ui-daily-distance-chart>
+            </ui-card>
         </div>
-        <ui-hourly-amount-chart></ui-hourly-amount-chart>
+        <ui-card icon="paid" title="Hourly amount" subtitle="Total hourly revenue per vendor / $">
+            <ui-hourly-amount-chart slot="card-body"></ui-hourly-amount-chart>
+        </ui-card>
     </div>
     <!-- end: dashboard route -->
 </main>
@@ -45,7 +35,10 @@
 
 <script type="module" src="main.js"></script>
 <script type="module" src="/src/lib/ui/organisms/navbar/navbar.component.js"></script>
+<script type="module" src="/src/lib/ui/molecules/card/card.component.js"></script>
 <script type="module" src="/src/lib/ui/molecules/datePicker/datePicker.component.js"></script>
+
+<!--Dashboard components-->
 <script type="module"
         src="/src/features/dashboard/presentation/ui/components/hourlyAmountChart/hourlyAmountChart.component.js"></script>
 <script type="module"
@@ -54,5 +47,6 @@
         src="/src/features/dashboard/presentation/ui/components/dailyPaxChart/dailyPaxChart.component.js"></script>
 <script type="module"
         src="/src/features/dashboard/presentation/ui/components/dailyDistanceChart/dailyDistanceChart.component.js"></script>
+<!--End: Dashboard components-->
 </body>
 </html>

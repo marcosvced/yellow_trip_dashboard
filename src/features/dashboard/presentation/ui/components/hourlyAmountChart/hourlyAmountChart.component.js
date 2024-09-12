@@ -25,31 +25,33 @@ export class HourlyAmountChart extends Component {
       bloc.subscribe(() => {
         const { labels, records } = this._getData(bloc.state.value.data.summary)
         if (!chart) {
-          chart = chartBarMixin({
-            labels,
-            records,
-            selector: '#hourly-amount-chart',
-            dataset: {
-              ...defaultBarChartConfig.dataset,
-              labels: ['Vendor 1', 'Vendor 2'],
-            },
-            options: {
-              ...defaultBarChartConfig.options,
-              plugins: {
-                legend: {
-                  display: true,
-                },
+          chart = chartBarMixin(
+            this.shadowRoot.querySelector('#hourly-amount-chart'),
+            {
+              labels,
+              records,
+              dataset: {
+                ...defaultBarChartConfig.dataset,
+                labels: ['Vendor 1', 'Vendor 2'],
               },
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  ticks: {
-                    callback: value => useMoney({ value, currency: 'USD' }),
+              options: {
+                ...defaultBarChartConfig.options,
+                plugins: {
+                  legend: {
+                    ...defaultBarChartConfig.options.plugins.legend,
+                    display: true,
+                  },
+                },
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      callback: value => useMoney({ value, currency: 'USD' }),
+                    },
                   },
                 },
               },
-            },
-          })
+            })
           return
         }
         useUpdateChart(chart, { records, labels })

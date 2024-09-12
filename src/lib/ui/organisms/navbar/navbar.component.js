@@ -1,6 +1,8 @@
 import { Component } from '@/core/common/presentation/models/Component.js'
 
+import css from './styles.module.css'
 import styles from './styles.module.css?inline'
+import '@/lib/ui/atoms/icon/icon.component.js'
 
 export class Navbar extends Component {
   constructor() {
@@ -30,10 +32,10 @@ export class Navbar extends Component {
     <nav class="navbar" role="navigation">
         <ul>
             ${this.entries.map(entry => `
-                <li id="${entry.label.toLowerCase()}" class="${entry.isActive ? '-is-active' : ''}">
+                <li id="${entry.label.toLowerCase()}" class="${entry.isActive ? css['-is-active'] : ''}">
                     <a>
-                        <span class="material-symbols-rounded">
-                            ${entry.icon}
+                        <span class="${css['icon']}">
+                            <ui-icon  icon="${entry.icon}"></ui-icon>
                         </span>
                         <span>${entry.label}</span>
                     </a>
@@ -43,9 +45,7 @@ export class Navbar extends Component {
     </nav>`
   }
 
-  styles() {
-    return styles
-  }
+  styles = () => styles
 }
 
 customElements.define('ui-navbar', Navbar)

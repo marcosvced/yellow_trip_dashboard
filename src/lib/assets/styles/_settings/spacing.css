@@ -11,4 +11,5 @@
   --s-32px: calc(calc(32 / 16) * 1rem);
   --s-48px: calc(calc(48 / 16) * 1rem);
   --s-64px: calc(calc(64 / 16) * 1rem);
+  --s-96px: calc(calc(96 / 16) * 1rem);
 }
