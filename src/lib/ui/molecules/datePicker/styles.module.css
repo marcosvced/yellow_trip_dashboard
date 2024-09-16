@@ -12,6 +12,7 @@
     border: 2px solid var(--c-ash-100);
     width: min-content;
     cursor: pointer;
+    color: var(--c-light);
 }
 .datedreamer__calendar {
     background: var(--c-ash-200);

@@ -1,6 +1,5 @@
 export class DashboardService {
   /**
-     * @param {string} day 'YYYY-MM-DD'
      * @param {Object} options Additional options for consultation
      * @param {string[]} options.fields Fields to select
      * @param {string} options.where where clause
@@ -8,7 +7,7 @@ export class DashboardService {
      * @param {string[]} options.orderBy Field to sort by
      * @return {Object} Parameters for the query
      */
-  _buildQuery(day, options = {}) {
+  _buildQuery(options = {}) {
     const {
       fields,
       table = '_',
@@ -31,7 +30,7 @@ export class DashboardService {
   getHourlyDataQuery(day, options = {}) {
     const datesRange = [`${day} 00:00:00`, `${day} 23:59:59`]
 
-    return this._buildQuery(day, {
+    return this._buildQuery({
       fields: [
         'vendorid',
         'DATE(tpep_pickup_datetime) AS trip_date',
